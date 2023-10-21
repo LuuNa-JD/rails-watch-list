@@ -1,0 +1,20 @@
+<h1><%= @list.name %></h1>
+
+<h2>Signets :</h2>
+<ul>
+  <% @list.bookmarks.each do |bookmark| %>
+    <li>
+        <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %>">
+        <%= bookmark.movie.title %>
+        <br>
+        <%= bookmark.movie.overview %>
+        <br>
+        <%= bookmark.movie.rating%>
+        <br>
+        <%= bookmark.comment %>
+    </li>
+
+  <% end %>
+</ul>
+<%= link_to "Creer un signet", new_list_bookmark_path(@list) %>
+<a class="button" href="<%= root_path %>">Retour au menu</menu></a>

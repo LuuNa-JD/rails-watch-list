@@ -1,0 +1,10 @@
+ <h1>Nouvelle Liste</h1>
+    <%= form_with model: @list do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <div class="form-actions">
+        <%= f.submit 'Sauvegarder', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+    <a class="button" href="<%= root_path %>">Retour au menu</menu></a>
+  </div>
