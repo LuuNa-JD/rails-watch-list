@@ -1,1 +1,154 @@
 // Specific CSS for your home-page
+/* Bannière */
+.banner {
+  background-image: url('rouge_home.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+}
+
+.banner h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 2px #000;
+}
+
+/* Styles for the movie lists */
+.lists {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.list {
+  width: 250px;
+  margin: 10px;
+  padding: 20px;
+  border: 2px solid #ccc; /* Increased border width for visibility */
+  border-radius: 10px; /* Increased border radius for a smoother look */
+  text-align: center;
+  background-color: #f9f9f9; /* Slightly off-white background color */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced box shadow for depth */
+}
+
+.list h2 {
+  font-size: 20px; /* Increased font size for titles */
+  font-weight: bold;
+}
+
+/* Styles for the create list button */
+.create-list-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.create-list-button a {
+  background-color: #ca563f;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.create-list-button a:hover {
+  background-color: #0a0b0c;
+}
+
+/* Improved title and list styles */
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  margin: 10px;
+  font-size: 16px;
+  color: #555;
+  transition: color 0.3s;
+}
+
+li a {
+  color: #555;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #090909;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Styles for the rows and columns */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-lg-4, .col-md-6, .col-sm-12 {
+  padding: 10px;
+}
+
+/* Styles for the card */
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* Additional styling for links */
+.card-title a {
+  text-decoration: none;
+  color: #333;
+}
+
+.card-title a:hover {
+  color: #e92424;
+}
+
+main {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+.list-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-image: url('https://picsum.photos/800/600');
+}

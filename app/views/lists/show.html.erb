@@ -1,20 +1,36 @@
-<h1><%= @list.name %></h1>
+<div class="list-show">
+  <h1><%= @list.name %></h1>
 
-<h2>Signets :</h2>
-<ul>
-  <% @list.bookmarks.each do |bookmark| %>
-    <li>
+  <h2>Bookmarks :</h2>
+  <div class="card-container">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card">
         <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %>">
-        <%= bookmark.movie.title %>
-        <br>
-        <%= bookmark.movie.overview %>
-        <br>
-        <%= bookmark.movie.rating%>
-        <br>
-        <%= bookmark.comment %>
-    </li>
+        <div class="card-body">
+          <h3><%= bookmark.movie.title %></h3>
+          <p><%= bookmark.movie.overview %></p>
+          <p><div class="rating">Rating: <%= bookmark.movie.rating %> /10</p></div>
+          <h3>Comment</h3>
+          <p><%= bookmark.comment %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
+  <!-- Formulaire pour créer un nouveau signet -->
+<div class="new-bookmark-form">
+  <h2 class="form-title">New Bookmark</h2>
+  <%= simple_form_for [@list, @bookmark], html: { class: 'form' } do |f| %>
+    <div class="form-group">
+      <%= f.input :comment, input_html: { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.association :movie, collection: Movie.all, label_method: :title, value_method: :id, prompt: "Choose a Movie", input_html: { class: 'form-control' } %>
+    </div>
+
+    <%= f.button :submit, "Add Bookmark", class: 'button' %>
   <% end %>
-</ul>
-<%= link_to "Creer un signet", new_list_bookmark_path(@list) %>
-<a class="button" href="<%= root_path %>">Retour au menu</menu></a>
+</div>
+  <a class="return-link" href="<%= root_path %>">Home</a>
+</div>
