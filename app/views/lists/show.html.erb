@@ -13,6 +13,7 @@
           <h3>Comment</h3>
           <p><%= bookmark.comment %></p>
         </div>
+       <%= link_to "Delete", list_bookmark_path(@list, bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" %>
       </div>
     <% end %>
   </div>

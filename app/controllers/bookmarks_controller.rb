@@ -22,7 +22,7 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to @bookmark.list, notice: 'Le signet a été supprimé avec succès.'
+    redirect_to list_path(@bookmark.list), status: :see_other
   end
 
   private

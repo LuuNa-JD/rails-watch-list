@@ -1,10 +1,16 @@
- <h1>Nouvelle Liste</h1>
-    <%= form_with model: @list do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <div class="form-actions">
-        <%= f.submit 'Sauvegarder', class: 'btn btn-primary' %>
-      </div>
-    <% end %>
-    <a class="button" href="<%= root_path %>">Retour au menu</menu></a>
-  </div>
+<div class="list-show">
+  <h1 class="page-title">New List</h1>
+
+  <%= form_with model: @list, html: { class: 'list-form' } do |f| %>
+    <div class="form-group">
+      <%= f.label :name, class: 'form-label' %>
+      <%= f.text_field :name, class: 'form-input' %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit 'Créer', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <a class="return-link" href="<%= root_path %>">Retour au menu</a>
+</div>
