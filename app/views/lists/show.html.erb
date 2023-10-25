@@ -5,8 +5,12 @@
     <h1><%= "Your Movies in the List: " %><%= @list.name %></h1>
   </div>
   <div class="list-image">
+  <% if @list.photo.present? %>
     <img src="<%= cl_image_path @list.photo.key %>" alt="<%= @list.name %>" />
-  </div>
+  <% else %>
+    <p>No Image Available</p>
+  <% end %>
+</div>
 
   <div class="bookmarks-section">
     <!-- Déplacez le titre "Bookmark" en dessous de l'image -->
