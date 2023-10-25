@@ -1,14 +1,12 @@
 <div class="liste-show">
   <h1 class="page-title">New List</h1>
 
-  <%= form_with model: @list, html: { class: 'liste-form' } do |f| %>
-    <div class="form-group">
-      <%= f.label :name, class: 'form-label' %>
-      <%= f.text_field :name, class: 'form-input' %>
-    </div>
+  <%= simple_form_for @list, html: { class: 'liste-form' } do |f| %>
+    <%= f.input :name, label: 'Name', input_html: { class: 'form-input' } %>
+    <%= f.input :photo, as: :file %>
 
     <div class="form-actions">
-      <%= f.submit 'Créer', class: 'btn btn-primary' %>
+      <%= f.button :submit, 'Créer', class: 'btn btn-primary' %>
     </div>
   <% end %>
 

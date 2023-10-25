@@ -150,5 +150,5 @@ main {
   height: 200px;
   background-size: cover;
   background-position: center;
-  background-image: url('https://picsum.photos/800/600');
+  //background-image: url("<%= cl_image_tag @list.photo.key %>")
 }

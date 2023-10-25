@@ -1,22 +1,34 @@
+<html>
+<body>
 <div class="list-show">
-  <h1><%= @list.name %></h1>
-
-  <h2>Bookmarks :</h2>
-  <div class="card-container">
-    <% @list.bookmarks.each do |bookmark| %>
-      <div class="card">
-        <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %>">
-        <div class="card-body">
-          <h3><%= bookmark.movie.title %></h3>
-          <p><%= bookmark.movie.overview %></p>
-          <p><div class="rating">Rating: <%= bookmark.movie.rating %> /10</p></div>
-          <h3>Comment</h3>
-          <p><%= bookmark.comment %></p>
-        </div>
-       <%= link_to "Delete", list_bookmark_path(@list, bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" %>
-      </div>
-    <% end %>
+  <div class="list-header">
+    <h1><%= "Your Movies in the List: " %><%= @list.name %></h1>
   </div>
+  <div class="list-image">
+    <img src="<%= cl_image_path @list.photo.key %>" alt="<%= @list.name %>" />
+  </div>
+
+  <div class="bookmarks-section">
+    <!-- Déplacez le titre "Bookmark" en dessous de l'image -->
+
+
+    <div class="card-container">
+      <% @list.bookmarks.each do |bookmark| %>
+        <div class="card">
+          <img src="<%= bookmark.movie.poster_url %>" alt="<%= bookmark.movie.title %>">
+          <div class="card-body">
+            <h3><%= bookmark.movie.title %></h3>
+            <p><%= bookmark.movie.overview %></p>
+            <p><div class="rating">Rating: <%= bookmark.movie.rating %> /10</p></div>
+            <h3>Comment</h3>
+            <p><%= bookmark.comment %></p>
+          </div>
+          <%= link_to "Delete", list_bookmark_path(@list, bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "delete-button" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
   <!-- Formulaire pour créer un nouveau signet -->
 <div class="new-bookmark-form">
@@ -31,7 +43,8 @@
     </div>
 
     <%= f.button :submit, "Add Bookmark", class: 'button' %>
+    <a class="button" href="<%= root_path %>">Home</a>
   <% end %>
 </div>
-  <a class="return-link" href="<%= root_path %>">Home</a>
-</div>
+</body>
+</html>
