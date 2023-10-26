@@ -150,5 +150,24 @@ main {
   height: 200px;
   background-size: cover;
   background-position: center;
-  //background-image: url("<%= cl_image_tag @list.photo.key %>")
+}
+
+.reviews-list {
+  list-style: none;
+  padding: 0;
+
+  .review-item {
+    margin: 10px;
+    font-size: 16px;
+    color: #886767;
+    transition: color 0.3s;
+
+    .review-content {
+      color: #555;
+    }
+
+    .review-rating {
+      color: #555;
+    }
+  }
 }

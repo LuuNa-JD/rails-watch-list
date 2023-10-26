@@ -1,0 +1,51 @@
+.review-form {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+
+  select, textarea, input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  .submit-button {
+    background-color: #ca563f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+
+  .submit-button:hover {
+    background-color: #0a0b0c;
+  }
+}
+
+.star-rating {
+  display: inline-block;
+}
+
+.stars {
+  font-size: 24px;
+  color: #fbc901;
+}
+
+.stars i {
+  cursor: pointer;
+}
+
+.stars i:hover,
+.stars i:hover ~ i {
+  color: #d8c89e;
+}

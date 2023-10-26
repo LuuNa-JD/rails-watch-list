@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root 'home#index'
+  post 'home/create_review', to: 'home#create_review', as: 'create_review'
   get 'lists', to: 'lists#index'
   get 'lists/new', to: 'lists#new', as: "new_list"
   get 'lists/:id', to: 'lists#show', as: "list"

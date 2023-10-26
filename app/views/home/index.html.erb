@@ -1,9 +1,15 @@
+<head>
+<script src="app/javascript/stars.js"></script>
+</head>
+
 <div class="banner">
   <h1>Welcome to your Movies List</h1>
 </div>
+
 <div class="create-list-button">
   <%= link_to "Add a new list", new_list_path, class: "button" %>
 </div>
+
 <main>
   <div class="container">
     <div class="row">
@@ -13,12 +19,104 @@
             <% if list.photo.key.present? %>
               <div class="list-image" style="background-image: url(<%= cl_image_path list.photo.key %>)"></div>
             <% end %>
+
             <div class="card-body">
-              <h5 class="card-title"><%= link_to list.name, list_path(list) %></h5>
+              <h5 class="card-title">
+                <%= link_to list.name, list_path(list) %>
+              </h5>
+              <h5 class="card-title">Review :</h5>
+              <ul class="reviews-list">
+                <% list.reviews.each do |review| %>
+                  <li class="review-item">
+                    <p class="review-content"><%= review.content %></p>
+                    <p class="review-rating">Rating :</p>
+                    <div class="star-rating">
+                      <div class="stars" id="stars">
+                        <% review.rating.times do %>
+                          <i class="fas fa-star"></i>
+                        <% end %>
+                      </div>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
             </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
+  <div class="review-form">
+  <h2>Add a new review :</h2>
+  <%= form_with(model: @review, url: create_review_path, local: true) do |form| %>
+    <%= form.collection_select :list_id, @lists, :id, :name, prompt: "Select a list" %>
+    <%= form.text_area :content, placeholder: "Share your opinion" %>
+
+    <!-- Étoiles de notation -->
+    <label for="rating">Rating :</label>
+    <div class="star-rating">
+      <div class="stars" id="stars">
+        <i class="fas fa-star" data-rating="1"></i>
+        <i class="fas fa-star" data-rating="2"></i>
+        <i class="fas fa-star" data-rating="3"></i>
+        <i class="fas fa-star" data-rating="4"></i>
+        <i class="fas fa-star" data-rating="5"></i>
+      </div>
+    </div>
+
+    <!-- Champ de notation caché pour le formulaire -->
+    <%= form.hidden_field :rating, id: "rating-input" %>
+
+    <!-- Bouton de soumission -->
+    <button type="submit" class="submit-button">Submit Review</button>
+  <% end %>
+</div>
 </main>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const stars = document.querySelectorAll(".stars i");
+  const starsContainer = document.getElementById("stars");
+  const ratingInput = document.getElementById("rating-input");
+
+  stars.forEach((star) => {
+    star.addEventListener("click", function () {
+      const rating = star.getAttribute("data-rating");
+      ratingInput.value = rating;
+      updateStarRating(rating);
+    });
+
+    star.addEventListener("mouseover", function () {
+      const rating = star.getAttribute("data-rating");
+      updateStarRating(rating, true);
+    });
+
+    star.addEventListener("mouseout", function () {
+      const selectedRating = ratingInput.value;
+      updateStarRating(selectedRating);
+    });
+  });
+
+  function updateStarRating(rating, isHover = false) {
+    stars.forEach((s) => {
+      if (isHover) {
+        const starRating = s.getAttribute("data-rating");
+        if (starRating <= rating) {
+          s.classList.add("fas");
+          s.classList.remove("far");
+        } else {
+          s.classList.remove("fas");
+          s.classList.add("far");
+        }
+      } else {
+        if (s.getAttribute("data-rating") <= rating) {
+          s.classList.add("fas");
+          s.classList.remove("far");
+        } else {
+          s.classList.remove("fas");
+          s.classList.add("far");
+        }
+      }
+    });
+  }
+});
+</script>

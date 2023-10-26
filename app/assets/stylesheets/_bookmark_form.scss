@@ -59,3 +59,100 @@
 .return-link:hover {
   color: #090909;
 }
+
+.card {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 18px; /* Réduisez légèrement la taille du titre */
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+/* Styles pour les informations de la liste */
+.list-info {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Styles pour la section des avis */
+.reviews-section {
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Styles pour les avis individuels */
+.review {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.review p:first-child {
+  font-weight: bold;
+}
+
+.review p.rating {
+  color: #e92424;
+  font-size: 18px;
+}
+
+/* Styles pour le formulaire d'avis en bas de la page */
+.review-form {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+
+  select, textarea, input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  .submit-button {
+    background-color: #ca563f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+
+  .submit-button:hover {
+    background-color: #0a0b0c;
+  }
+}
