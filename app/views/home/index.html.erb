@@ -2,12 +2,13 @@
 <script src="app/javascript/stars.js"></script>
 </head>
 
-<div class="banner">
-  <h1>Welcome to your Movies List</h1>
+<div class="create-list-button">
+  <%= render "shared/navbar" %>
+  <%= render "shared/flashes" %>
 </div>
 
-<div class="create-list-button">
-  <%= link_to "Add a new list", new_list_path, class: "button" %>
+<div class="banner">
+  <h1>Welcome to your Movies List</h1>
 </div>
 
 <main>
